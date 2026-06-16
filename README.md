@@ -54,5 +54,55 @@
 * **VMs = full OS per instance**, **Containers = shared OS, isolated apps**.
 * Docker depends on Linux kernel.
 
+## Running Containers
+
+* Run container:
+  `docker container run hello-world`
+
+* Docker pulls image if not found locally, then runs it.
+
+* First run downloads image; next runs use local image.
+
+* Check setup: output shows **"Hello from Docker!"**
+
+* Be careful when running external images from the internet.
+
+## Images and Containers
+
+* **Image vs Container**
+
+  * Image = blueprint (immutable file)
+  * Container = running instance of an image
+
+* **Metaphor**
+
+  * Image = recipe
+  * Container = cooked meal
+
+* **Images**
+
+  * Built using `Dockerfile`
+
+    ```
+    FROM <image>:<tag>
+    RUN <install dependencies>
+    CMD <command>
+    ```
+  * Build image: `docker image build`
+  * List images: `docker image ls`
+
+* **Containers**
+
+  * Created from images
+  * Can start, stop, interact
+  * List running containers: `docker container ls` or `docker ps`
+  * List all containers: `docker container ls -a`
+
+* **Key idea**
+
+  * One image → multiple containers
+
+
+
 
 
