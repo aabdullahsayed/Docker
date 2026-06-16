@@ -103,6 +103,125 @@
   * One image → multiple containers
 
 
+## Docker CLI Basics 
+* Docker has 3 parts:
+
+  * CLI client
+  * REST API
+  * Docker daemon
+
+* Commands go like:
+
+  * CLI → sends request → daemon handles containers/images
+
+---
+
+### Basic Image & Container Commands
+
+* Run container:
+  `docker container run <image>`
+  or `docker run <image>`
+
+* Pull image only:
+  `docker image pull hello-world`
+
+* List images:
+  `docker image ls`
+
+* List containers:
+
+  * Running: `docker container ls` or `docker ps`
+  * All: `docker container ls -a`
+
+---
+
+### Removing Containers & Images
+
+* Remove container:
+  `docker container rm <id/name>`
+
+* Remove image:
+  `docker image rm <image>`
+
+* Error happens if container uses image → remove container first
+
+* Stop running container:
+  `docker container stop <name/id>`
+
+---
+
+### Bulk Cleanup
+
+* Remove stopped containers:
+  `docker container prune`
+
+* Remove unused images:
+  `docker image prune`
+
+* Clean everything:
+  `docker system prune`
+
+---
+
+### Detached Mode
+
+* Run in background:
+  `docker run -d nginx`
+
+* Check running containers:
+  `docker container ls`
+
+* Stop container:
+  `docker container stop <name>`
+
+* Force remove:
+  `docker container rm --force <name>`
+
+---
+
+### Key Idea
+
+* Containers must be **stopped before removal**
+* Docker system can accumulate unused images/containers over time
+
+
+## Docker CLI 
+
+* Stop container:
+  `docker container stop blissful_wright`
+
+* Remove container:
+  `docker container rm blissful_wright`
+
+* Force remove (if needed):
+  `docker container rm --force blissful_wright`
+
+* You can use **container name or ID (or partial ID)**
+
+* Docker system can get cluttered with unused containers and images over time
+
+---
+
+### Most Used Docker Commands
+
+| Command                             | Explanation                  | Shorthand       |
+| ----------------------------------- | ---------------------------- | --------------- |
+| `docker image ls`                   | List all images              | `docker images` |
+| `docker image rm <image>`           | Remove image                 | `docker rmi`    |
+| `docker image pull <image>`         | Download image               | `docker pull`   |
+| `docker container ls -a`            | List all containers          | `docker ps -a`  |
+| `docker container run <image>`      | Run container                | `docker run`    |
+| `docker container rm <container>`   | Remove container             | `docker rm`     |
+| `docker container stop <container>` | Stop container               | `docker stop`   |
+| `docker container exec <container>` | Run command inside container | `docker exec`   |
+
+---
+
+### Key Idea
+
+* Same commands work with **container name or ID**
+* Shorthands are just **shorter versions of full commands** (some are legacy but still widely used)
+
 
 
 
